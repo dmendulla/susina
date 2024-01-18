@@ -15,7 +15,7 @@ public class TileHandler {
 
     private Array<WorldTile> worldTileArray;
 
-    private TimeHandler() {
+    private TileHandler() {
         worldTileArray = new Array<>();
 
         spriteOnSheetHeight = Tile.ON_SCREEN_DEFAULT_HEIGHT;
@@ -27,7 +27,7 @@ public class TileHandler {
         WorldTile blackWorldTile = new WorldTile(temRegion, 0, "black");
         worldTileArray.add(blackWorldTile);
 
-        temRegion = new TextureRegion(tempTexture, spriteOnSheetWidth * 3, spriteOnSheetHeight * 0, spriteOnSheetWidth, spriteOnSheetHeight);
+        temRegion = new TextureRegion(tempTexture, spriteOnSheetWidth * 1, spriteOnSheetHeight * 0, spriteOnSheetWidth, spriteOnSheetHeight);
         WorldTile whiteWorldTile = new WorldTile(temRegion, 2, "white");
         worldTileArray.add(whiteWorldTile);
 
@@ -42,6 +42,10 @@ public class TileHandler {
         temRegion = new TextureRegion(tempTexture, spriteOnSheetWidth * 0, spriteOnSheetHeight * 8, spriteOnSheetWidth, spriteOnSheetHeight);
         WorldTile blueWorldTile = new WorldTile(temRegion, 4, "blue");
         worldTileArray.add(blueWorldTile);
+    }
+
+    public Array<WorldTile> getWorldTileArray() {
+        return worldTileArray;
     }
 
     public static TileHandler getTileHandler() {
