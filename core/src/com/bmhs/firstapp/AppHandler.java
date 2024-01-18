@@ -14,6 +14,28 @@ public class AppHandler extends ApplicationAdapter {
 
 	int x, y;
 
+	int[][] worldIntArray = {
+			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 1, 2, 2, 1, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 1, 2, 2, 1, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 0, 0, 0, 0},
+			{0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0},
+			{0, 0, 0, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 0, 0, 0},
+			{0, 0, 1, 0, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 0, 1, 0, 0},
+			{0, 1, 3, 3, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 3, 3, 1, 0},
+			{0, 1, 3, 3, 3, 0, 0, 0, 2, 2, 2, 2, 0, 0, 3, 3, 3, 3, 1, 0},
+			{0, 1, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 1, 0},
+			{0, 0, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 0, 0},
+			{0, 0, 0, 0, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	};
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -24,13 +46,13 @@ public class AppHandler extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
+		ScreenUtils.clear(1, 1, 1, 1);
 		batch.begin();
 
-		for(int r = 0; r < Gdx.graphics.getHeight(); r+=64){
-			for(int c = 0; c < Gdx.graphics.getWidth(); c+=64){
-				batch.draw(TileHandler.getTileHandler().getWorldTileArray().get(x++).getTexture(), c, r);
-				if (x > 4) x = 0;
+
+		for(int r = 0; r < worldIntArray.length; r++){
+			for(int c = 0; c < worldIntArray[r].length; c++){
+				batch.draw(TileHandler.getTileHandler().getWorldTileArray().get(worldIntArray[r][c]).getTexture(), c*64, Gdx.graphics.getHeight() - 64 - r*64);
 			}
 		}
 
