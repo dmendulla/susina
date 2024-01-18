@@ -16,7 +16,8 @@ public class AppHandler extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		img = new Texture("primaryColorSheet.jpg");
+
 
 		x = 0;
 		y = 0;
