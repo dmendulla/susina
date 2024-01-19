@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.bmhs.firstapp.gfx.assets.Tile;
 import com.bmhs.firstapp.gfx.utils.TileHandler;
 
 public class AppHandler extends ApplicationAdapter {
@@ -52,7 +53,7 @@ public class AppHandler extends ApplicationAdapter {
 
 		for(int r = 0; r < worldIntArray.length; r++){
 			for(int c = 0; c < worldIntArray[r].length; c++){
-				batch.draw(TileHandler.getTileHandler().getWorldTileArray().get(worldIntArray[r][c]).getTexture(), c*64, Gdx.graphics.getHeight() - 64 - r*64);
+				batch.draw(TileHandler.getTileHandler().getWorldTileArray().get(worldIntArray[r][c]).getTexture(), c * Tile.ON_SCREEN_DEFAULT_WIDTH, Gdx.graphics.getHeight() - Tile.ON_SCREEN_DEFAULT_HEIGHT - r * Tile.ON_SCREEN_DEFAULT_HEIGHT);
 			}
 		}
 
