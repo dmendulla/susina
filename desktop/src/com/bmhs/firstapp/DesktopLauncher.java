@@ -8,9 +8,9 @@ import com.bmhs.firstapp.AppHandler;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		config.setWindowedMode(1280, 1216);
+		config.setWindowedMode(1088, 1280);
 		config.setForegroundFPS(60);
-		config.setTitle("Watermelon");
+		config.setTitle("Susina");
 		new Lwjgl3Application(new AppHandler(), config);
 	}
 }
